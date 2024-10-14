@@ -43,8 +43,8 @@ namespace robot {
 
     //% block="Is obstacle"
     //% group="Obstacle"
-    export function isObstacle() {
-        agent.detect(AgentDetection.Block, FourDirection.Forward)
+    export function isObstacle(dir: FourDirection) {
+        agent.detect(AgentDetection.Block, dir)
     }
  
     //% block
