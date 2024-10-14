@@ -41,7 +41,7 @@ namespace robot {
         agent.turn(TurnDirection.Right)
     }
 
-    //% block="Is obstacle"
+    //% block="Is $dir obstacle"
     //% group="Obstacle"
     export function isObstacle(dir: FourDirection) {
         agent.detect(AgentDetection.Block, dir)
