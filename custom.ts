@@ -41,6 +41,10 @@ namespace robot {
         agent.turn(TurnDirection.Right)
     }
 
+    /**
+     * Checks if the given direction has an obstacle next to you
+     * @param dir the direction to check
+     */
     //% block="Is $dir obstacle"
     //% group="Obstacle"
     export function isObstacle(dir: FourDirection) {
