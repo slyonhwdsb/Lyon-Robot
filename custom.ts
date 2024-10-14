@@ -17,9 +17,11 @@ namespace robot {
     */
     //% block="Start at $pos facing $dir"
     //% pos.shadow=minecraftCreateWorldPosition
-    //% dir.shadow=minecraftCardinalDirection
+    //% dir.shadow=minecraftCompassDirection
     //% group="Setup"
-    export function start(pos: Position, dir: CardinalDirection) {
+    export function start(pos: Position, dir: CompassDirection) {
+        agent.teleport(world(6000, 0, 6000), dir)
+        agent.dropAll(dir)
         agent.teleport(pos, dir)
     }
 
@@ -28,7 +30,17 @@ namespace robot {
     export function forward() {
         agent.move(FORWARD, 1)
     }
-
+    //% block="Turn Left"
+    //% group="Movement"
+    export function turnLeft() {
+        agent.turn(TurnDirection.Left)
+    }
+    //% block="Turn Right"
+    //% group="Movement"
+    export function turnRight() {
+        agent.turn(TurnDirection.Right)
+    }
+ 
     //% block
     //% group="Beacon"
     export function frontIsBeacon() {
@@ -44,6 +56,19 @@ namespace robot {
     export function rightIsBeacon() {
         return isBlock("right", BEACON, 0)
     }
+    //% block="Pick up Beacon"
+    //% group="Beacon"
+    export function pickupBeacon() {
+        agent.destroy(FORWARD)
+        agent.collect(BEACON)
+    }
+    //% block="Put down Beacon"
+    //% group="Beacon"
+    export function putDownBeacon() {
+        agent.setSlot(1)
+        agent.place(FORWARD)
+    }
+
     //% block
     //% group="White Lines"
     export function frontIsWhite() {
@@ -59,6 +84,7 @@ namespace robot {
     export function rightIsWhite() {
         return isBlock("right", WHITE_CONCRETE, -1)
     }
+
     //% block
     //% group="Black Lines"
     export function frontIsBlack() {
@@ -105,29 +131,4 @@ namespace robot {
         }
         return false
     }
-    /*
-    player.onChat("lyon1", function () {
-        agent.teleport(world(7, -60, 26), EAST)
-        while (true) {
-            if (frontIsBeacon()) {
-                agent.destroy(FORWARD)
-                agent.collectAll()
-                agent.turn(LEFT_TURN)
-                agent.turn(LEFT_TURN)
-            }
-            if (isFrontWhite()) {
-                agent.move(FORWARD, 1)
-            } else if (isLeftWhite()) {
-                agent.turn(LEFT_TURN)
-            } else if (isRightWhite()) {
-                agent.turn(RIGHT_TURN)
-            } else if (frontIsBlack()) {
-                agent.place(FORWARD)
-                break;
-            } else {
-                break;
-            }
-        }
-    })
-    */
 }
