@@ -9,10 +9,8 @@ namespace robot {
     let dir: Position = null
 
     /**
-    * Teleport your agent to the starting position
-    * @param x starting x world position
-    * @param y starting y world position
-    * @param z starting z world position
+    * Teleport your agent to the starting position and clears inventory
+    * @param pos the starting world coordinates
     * @param dir the compass direction to face
     */
     //% block="Start at $pos facing $dir"
