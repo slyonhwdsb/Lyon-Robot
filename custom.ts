@@ -46,9 +46,11 @@ namespace robot {
      * @param dir the direction to check
      */
     //% block="Is $dir obstacle"
+    //% dir.shadow=minecraftCompassDirection
     //% group="Obstacle"
-    export function isObstacle(dir: FourDirection) {
-        agent.detect(AgentDetection.Block, dir)
+    export function isObstacle(dir: CompassDirection) {
+        return true
+        //agent.detect(AgentDetection.Block, dir)
     }
  
     //% block
