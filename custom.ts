@@ -2,7 +2,7 @@
  * Robot blocks
  */
 //% weight=100 color=#6495ED icon="\uf0e7"
-//% groups=['Setup', 'Movement', 'Beacon', 'White Lines', 'Black Lines']
+//% groups=['Setup', 'Movement', 'Obstacle', 'Beacon', 'White Lines', 'Black Lines']
 namespace robot {
     let EW = 0
     let NS = 0
@@ -39,6 +39,13 @@ namespace robot {
     //% group="Movement"
     export function turnRight() {
         agent.turn(TurnDirection.Right)
+    }
+
+    //% block="Is %dir obstacle?"
+    //% dir.shadow=minecraftFourDirection
+    //% group="Obstacle"
+    export function isObstacle(dir: FourDirection) {
+        agent.detect(AgentDetection.Block, dir)
     }
  
     //% block
