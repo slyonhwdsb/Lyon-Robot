@@ -16,8 +16,9 @@ namespace robot {
     * @param dir the compass direction to face
     */
     //% block="Start at x $x y $y z $z facing $dir"
+    //% dir.shadow="direction"
     //% group="Setup"
-    export function start(x: number, y: number, z: number, dir: number) {
+    export function start(x:number, y:number, z:number, dir: number) {
         agent.teleport(world(x, y, z), dir)
     }
 
