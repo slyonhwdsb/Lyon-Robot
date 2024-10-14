@@ -41,8 +41,8 @@ namespace robot {
         agent.turn(TurnDirection.Right)
     }
 
-    //% block="Is %dir obstacle?"
-    //% dir.shadow=minecraftTurnDirection
+    //% block="Is $dir obstacle?"
+    //% dir.shadow=minecraftFourDirection
     //% group="Obstacle"
     export function isObstacle(dir: FourDirection) {
         agent.detect(AgentDetection.Block, dir)
