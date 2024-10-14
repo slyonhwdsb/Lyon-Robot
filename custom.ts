@@ -2,11 +2,30 @@
  * Robot blocks
  */
 //% weight=100 color=#6495ED icon="\uf0e7"
-//% groups=['Beacon', 'White Lines', 'Black Lines']
+//% groups=['Setup', 'Movement', 'Beacon', 'White Lines', 'Black Lines']
 namespace robot {
     let EW = 0
     let NS = 0
     let dir: Position = null
+
+    /**
+    * Teleport your agent to the starting position
+    * @param x starting x world position
+    * @param y starting y world position
+    * @param z starting z world position
+    * @param dir the compass direction to face
+    */
+    //% block
+    //% group="Setup"
+    export function start(x: number, y: number, z: number, dir: number) {
+        agent.teleport(world(x, y, z), WEST)
+    }
+
+    //% block
+    //% group="Movement"
+    export function forward() {
+        agent.move(FORWARD, 1)
+    }
 
     //% block
     //% group="Beacon"
