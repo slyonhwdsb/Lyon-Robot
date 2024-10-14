@@ -15,11 +15,12 @@ namespace robot {
     * @param z starting z world position
     * @param dir the compass direction to face
     */
-    //% block="Start at x $x y $y z $z facing $dir"
-    //% dir.shadow=minecraftCreatePositionWorld
+    //% block="Start at $pos facing $dir"
+    //% pos.shadow=minecraftCreateWorldPosition
+    //% dir.shadow=minecraftTurnDirection
     //% group="Setup"
-    export function start(x:number, y:number, z:number, dir: number) {
-        agent.teleport(world(x, y, z), dir)
+    export function start(pos: Position, dir: TurnDirection) {
+        agent.teleport(pos, dir)
     }
 
     //% block
