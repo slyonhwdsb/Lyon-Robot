@@ -17,9 +17,9 @@ namespace robot {
     */
     //% block="Start at $pos facing $dir"
     //% pos.shadow=minecraftCreateWorldPosition
-    //% dir.shadow=minecraftTurnDirection
+    //% dir.shadow=minecraftFourDirection
     //% group="Setup"
-    export function start(pos: Position, dir: TurnDirection) {
+    export function start(pos: Position, dir: FourDirection) {
         agent.teleport(pos, dir)
     }
 
