@@ -42,7 +42,6 @@ namespace robot {
     }
 
     //% block="Is $dir obstacle?"
-    //% dir.shadow=minecraftFourDirection
     //% group="Obstacle"
     export function isObstacle(dir: FourDirection) {
         agent.detect(AgentDetection.Block, dir)
