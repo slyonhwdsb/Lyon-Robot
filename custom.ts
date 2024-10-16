@@ -162,8 +162,6 @@ namespace robot {
         if(keepBeacons) {
             numBeacons = agent.getItemCount(SLOT_BEACON)
         }
-        
-        player.say(numBeacons)
 
         if(returnHere) {
             currPos = agent.getPosition()
